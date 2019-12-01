@@ -3,4 +3,4 @@
 **/dist
 **/package-lock.json
 **/server
-**/dao
+**/.env

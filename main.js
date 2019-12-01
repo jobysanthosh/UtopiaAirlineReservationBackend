@@ -1,16 +1,15 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-const apiRouter1 = require('./controllers/index.js');
-// const apiRouter2 = require('./routes/index.js');
+const apiRouter = require('./controllers/index.js');
 const errorHandler = require('./helpers/errorHandler');
-
+const CONFIG = require('./config');
 
 const server = express();
 server.use(bodyParser.json()); 
 server.use(bodyParser.urlencoded({ extended: true })); 
 server.use(cors());
-
+console.log(CONFIG.db_name);
 // server.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -26,13 +25,14 @@ server.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Payment Service on AWS Lambda!' });
  });
 
-server.use('/payment', apiRouter1);
-// server.use('/pay', apiRouter2);
+server.use('/payment', apiRouter);
 
 server.use(errorHandler.notFound);
 server.use(errorHandler.internalServerError);
 
 module.exports = server;
+
+//ERROR CHECK : serverless logs -f server -t
 
 // server.listen(8000);
 // console.log('Server running in port: 8000 ...')

@@ -145,7 +145,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/expressAPI-payment/dev/1575239524357-2019-12-01T22:32:04.357Z/expressAPI-payment.zip"
+          "S3Key": "serverless/expressAPI-payment/dev/1575243366581-2019-12-01T23:36:06.581Z/expressAPI-payment.zip"
         },
         "FunctionName": "expressAPI-payment-dev-server",
         "Handler": "index.server",
@@ -164,14 +164,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "ServerLambdaVersion4a82emkNu1l1bUm6lvFEAM3QR1PJtdTF34TTdWfmI": {
+    "ServerLambdaVersionO3CB1wuB2z1jFRqB53aKtd5gKdlzh69t0Xl0C6mS1k": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ServerLambdaFunction"
         },
-        "CodeSha256": "rkV/8NSbHkpg9bgjET6TRcha23HmD4iKRVlm6u1+N18="
+        "CodeSha256": "ZZ9xQU1K4znPZI114cxM8/qxeQ7j81zVFGIMAGA/aRo="
       }
     },
     "ApiGatewayRestApi": {
@@ -386,7 +386,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1575239514190": {
+    "ApiGatewayDeployment1575243339330": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -448,7 +448,7 @@
     "ServerLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ServerLambdaVersion4a82emkNu1l1bUm6lvFEAM3QR1PJtdTF34TTdWfmI"
+        "Ref": "ServerLambdaVersionO3CB1wuB2z1jFRqB53aKtd5gKdlzh69t0Xl0C6mS1k"
       }
     },
     "ServiceEndpoint": {

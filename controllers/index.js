@@ -9,8 +9,9 @@ router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 
 router.get('/', (req, res) => {
-    // getPayment = function (cb) {
+
     const query = 'select * from UtopiaAirline.CardDetails';
+
     db.query(query, (err, results, fields) => {
         if (err) {
             const response = { data: null, message: err.message, }
@@ -25,18 +26,6 @@ router.get('/', (req, res) => {
         res.send(response);
     });
 });
-
-//     db.query('select * from UtopiaAirline.CardDetails', function (err, result) {
-//         cb(err, result);
-//     });
-// };
-
-//     getPayment(function (error, result) {
-//         if (error) throw error;
-//         //res.setHeader('Content-Type', 'application/json');
-//         res.send(result);
-//     });
-// });
 
                                 //GET PAYMENT BY ID
 
@@ -60,13 +49,15 @@ router.get('/:id', (req, res) => {
 //PLEASE ENABLE THE HEADER "CONTENT_TYPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 router.post('/', (req, res) => {
     const { userId, cardNumber, cardType, expirationDate, nameOnCard } = req.body
-  
+    
+    //bcrypt.hash(payment.cardNumber, saltRounds, function(err, hash) {
     const query = `INSERT INTO UtopiaAirline.CardDetails (userId, cardNumber, cardType, expirationDate, nameOnCard) VALUES ('${userId}', '${cardNumber}', '${cardType}', '${expirationDate}', '${nameOnCard}')`
     db.query(query, (err, results, fields) => {
       if (err) {
         const response = { data: null, message: err.message, }
         res.send(response)
       }
+    //})
   
       
       const payment = { userId, cardNumber, cardType, expirationDate, nameOnCard }

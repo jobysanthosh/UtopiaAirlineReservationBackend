@@ -1,4 +1,6 @@
-const stripe = require("stripe")('sk_test_MYDs1ZdsDZ2QcbhY7YkwaDuf009s6McM4m');
+const CONFIG = require('../config');
+
+const stripe = require("stripe")(CONFIG.stripe_secretkey);
 const stripeChargeCallback = res => (stripeErr, stripeRes) => {
     if (stripeErr) {
       res.status(500).send({ error: stripeErr });
@@ -6,7 +8,7 @@ const stripeChargeCallback = res => (stripeErr, stripeRes) => {
       res.status(200).send({ success: stripeRes });
     }
   };const paymentApi = app => {
-    app.get("/", (req, res) => {
+    app.get("/stripe", (req, res) => {
       res.send({
         message: "Hello Stripe checkout server!",
         timestamp: new Date().toISOString()
