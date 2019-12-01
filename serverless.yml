@@ -1,0 +1,19 @@
+service: expressAPI-payment
+provider:
+ name: aws
+ runtime: nodejs8.10
+ stage: dev
+ region: us-east-2
+ memorySize: 128
+functions:
+ server:
+   handler: index.server
+   events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: /
+          method: ANY
+          cors: true
+      - http: # all routes get proxied to the Express router
+          path: /{proxy+}
+          method: ANY
+          cors: true
