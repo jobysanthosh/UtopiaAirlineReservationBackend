@@ -81,3 +81,15 @@ describe('Payment Endpoints', function () {
             });
     });
 });
+
+describe('Stripe Check', function () {
+    it('should display message on /stripe GET', function (done) {
+        chai.request(server)
+            .get('/stripe')
+            .end(function (err, res) {
+                res.should.have.status(200);
+                done();
+            });
+    });
+
+});

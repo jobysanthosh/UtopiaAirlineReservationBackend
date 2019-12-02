@@ -9,7 +9,6 @@ CONFIG.db_name      = process.env.DB_NAME
 CONFIG.db_user      = process.env.DB_USER
 CONFIG.db_password  = process.env.DB_PASSWORD
 CONFIG.stripe_secretkey = process.env.STRIPE_SECRETKEY
-// CONFIG.stripSecretKey = process.env.STRIPE_SECRET_KEY
-// CONFIG.stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+CONFIG.digestAlgorithm = process.env.DIGESTALGORITHM
 
 module.exports = CONFIG
