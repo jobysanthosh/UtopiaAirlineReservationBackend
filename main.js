@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const apiRouter = require('./controllers/index.js');
+const apiRouterTest = require('./test/index.js');
 const errorHandler = require('./helpers/errorHandler');
 
 const server = express();
@@ -24,6 +25,7 @@ server.get('/', (req, res) => {
  });
 
 server.use('/payment', apiRouter);
+server.use('/paymentTest', apiRouterTest);
 
 server.use(errorHandler.notFound);
 server.use(errorHandler.internalServerError);

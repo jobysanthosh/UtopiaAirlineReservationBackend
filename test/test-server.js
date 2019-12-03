@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 describe('Payment Endpoints', function () {
     it('should list ALL payments on /payment GET', function (done) {
         chai.request(server)
-            .get('/payment')
+            .get('/paymentTest')
             .end(function (err, res) {
                 res.should.have.status(200);
                 done();
@@ -17,7 +17,7 @@ describe('Payment Endpoints', function () {
 
     it('should list a SINGLE payment on /payment/{id} GET', function (done) {
         chai.request(server)
-            .get('/payment/' + '2')
+            .get('/paymentTest/' + '2')
             .end(function (err, res) {
                 res.should.have.status(200);
                 res.should.be.json;
@@ -33,14 +33,15 @@ describe('Payment Endpoints', function () {
 
     it('should add a SINGLE payment on /payment POST', function (done) {
         chai.request(server)
-            .post('/payment')
-            .send({ 'userId': '8', 'cardNumber': 'test', 'cardType': 'test', 'expirationDate': '2020-01-01', 'nameOnCard': 'test', })
+            .post('/paymentTest')
+            .set({ 'Content-Type': 'application/json' , 'Accept': 'application/json'})
+            .send({ 'userId': '6', 'cardNumber': 'test', 'cardType': 'test', 'expirationDate': '2020-01-01', 'nameOnCard': 'test', })
             .end(function (err, res) {
                 res.should.have.status(201);
-                 res.should.be.json;
-                 res.body.should.be.a('object');
-                 res.body.should.have.property('data');
-                 res.body.data.should.have.property('userId');
+                res.should.be.json;
+                res.body.should.be.a('object');
+                res.body.should.have.property('data');
+                res.body.data.should.have.property('userId');
                 res.body.data.should.have.property('cardNumber');
                 res.body.data.should.have.property('cardType');
                 res.body.data.should.have.property('nameOnCard');
@@ -50,8 +51,8 @@ describe('Payment Endpoints', function () {
 
     it('should update a SINGLE payment on /payment/<id> PUT', function (done) {
         chai.request(server)
-            .put('/payment/')
-            .set({ 'id': '8', 'Content-Type': 'application/json', 'Accept': 'application/json' })
+            .put('/paymentTest/')
+            .set({ 'id': '6', 'Content-Type': 'application/json', 'Accept': 'application/json' })
             .send({ 'cardNumber': 'udpate', 'cardType': 'udpate', 'expirationDate': '2020-01-01', 'nameOnCard': 'update', })
             .end(function (error, response) {
                 if (error) {
@@ -67,8 +68,8 @@ describe('Payment Endpoints', function () {
 
     it('should delete a SINGLE payment on /payment/<id> DELETE', function (done) {
         chai.request(server)
-            .delete('/payment/')
-            .set({ 'id': '8', 'Content-Type': 'application/json', 'Accept': 'application/json' })
+            .delete('/paymentTest/')
+            .set({ 'id': '6', 'Content-Type': 'application/json', 'Accept': 'application/json' })
             .end(function (error, response) {
                 if (error) {
                     console.log("error");

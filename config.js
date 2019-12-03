@@ -11,4 +11,8 @@ CONFIG.db_password  = process.env.DB_PASSWORD
 CONFIG.stripe_secretkey = process.env.STRIPE_SECRETKEY
 CONFIG.digestAlgorithm = process.env.DIGESTALGORITHM
 
+CONFIG.testdb_host  = process.env.TESTDB_HOST
+CONFIG.testdb_user  = process.env.TESTDB_USER
+CONFIG.testdb_password  = process.env.TESTDB_PASSWORD
+
 module.exports = CONFIG
