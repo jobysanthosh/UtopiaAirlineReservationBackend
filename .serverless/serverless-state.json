@@ -160,7 +160,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/expressAPI-payment/dev/1575325647090-2019-12-02T22:27:27.090Z/expressAPI-payment.zip"
+                "S3Key": "serverless/expressAPI-payment/dev/1575489042197-2019-12-04T19:50:42.197Z/expressAPI-payment.zip"
               },
               "FunctionName": "expressAPI-payment-dev-server",
               "Handler": "index.server",
@@ -179,14 +179,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ServerLambdaVersionkLjfWTAOId3hfAprCi7G67vjuXsJF97L3Z1B9kemQ": {
+          "ServerLambdaVersionCd82WQAU4chYXxZ4mEEP9MU3CJWs9TPlc9L6hnJ7qs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ServerLambdaFunction"
               },
-              "CodeSha256": "e+OLV9v91piAo4tsrV66JyQ9Qk2+Qc2ggvKYMp1hu0g="
+              "CodeSha256": "Yh0ep6tS2DK4SGEckD8u2BB9a0S8S+tdEqv44iovkbw="
             }
           },
           "ApiGatewayRestApi": {
@@ -401,7 +401,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1575325627411": {
+          "ApiGatewayDeployment1575489031072": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -463,7 +463,7 @@
           "ServerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ServerLambdaVersionkLjfWTAOId3hfAprCi7G67vjuXsJF97L3Z1B9kemQ"
+              "Ref": "ServerLambdaVersionCd82WQAU4chYXxZ4mEEP9MU3CJWs9TPlc9L6hnJ7qs"
             }
           },
           "ServiceEndpoint": {
@@ -631,7 +631,7 @@
     "artifact": "C:\\Users\\jobys\\UtopiaBackEnd\\utopiaBackEnd\\.serverless\\expressAPI-payment.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/expressAPI-payment/dev/1575325647090-2019-12-02T22:27:27.090Z",
+    "artifactDirectoryName": "serverless/expressAPI-payment/dev/1575489042197-2019-12-04T19:50:42.197Z",
     "artifact": "expressAPI-payment.zip"
   }
 }

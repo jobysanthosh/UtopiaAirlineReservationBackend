@@ -64,17 +64,16 @@ router.get('/:id', (req, res) => {
 
 //PLEASE ENABLE THE HEADER "CONTENT_TYPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 router.post('/', (req, res) => {
-  const { userId, cardNumber, cardType, expirationDate, nameOnCard } = req.body
-
+  const { cardNumber, cardType, expirationDate, nameOnCard } = req.body
+  userId = req.header('userId');
   pbkdf2.hashPassword('cardNumber', (err, cipherText, salt) => {
-
+    
     const query = `INSERT INTO UtopiaAirline.CardDetails (userId, cardNumber, cardType, expirationDate, nameOnCard) VALUES ('${userId}', '${cipherText}', '${cardType}', '${expirationDate}', '${nameOnCard}')`
     db.query(query, (err, results, fields) => {
       if (err) {
         const response = { data: null, message: err.message, }
         res.send(response)
       }
-
       const payment = { userId, cardNumber, cardType, expirationDate, nameOnCard }
       const response = {
         data: payment,
@@ -89,7 +88,7 @@ router.post('/', (req, res) => {
 //PLEASE ENABLE THE HEADER "CONTENT_TYPE AND "id=?"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 router.put('/', (req, res) => {
   var payment = req.body;
-  payment.userId = req.headers.id;
+  payment.userId = req.header('userId');
   updatePayment = function (payment, cb) {
     db.beginTransaction(function (err) {
       if (err) cb(err, null);
@@ -135,7 +134,7 @@ router.delete('/', (req, res) => {
       });
     });
   };
-  deletePayment(req.headers.id, function (err, result) {
+  deletePayment(req.header('userId'), function (err, result) {
     if (err) {
       res.status(400);
       res.send('Delete payment Failed!');
@@ -144,7 +143,7 @@ router.delete('/', (req, res) => {
       const response = { message: `Payment doesn't exist` };
       res.status(404).send(response)
     }
-    res.send('Delete payment Successful!');
+    res.status(204).send('Delete payment Successful!');
   });
 });
 

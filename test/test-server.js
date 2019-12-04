@@ -34,8 +34,8 @@ describe('Payment Endpoints', function () {
     it('should add a SINGLE payment on /payment POST', function (done) {
         chai.request(server)
             .post('/paymentTest')
-            .set({ 'Content-Type': 'application/json' , 'Accept': 'application/json'})
-            .send({ 'userId': '6', 'cardNumber': 'test', 'cardType': 'test', 'expirationDate': '2020-01-01', 'nameOnCard': 'test', })
+            .set({ 'userId': '6' })
+            .send({'cardNumber': 'test', 'cardType': 'test', 'expirationDate': '2020-01-01', 'nameOnCard': 'test', })
             .end(function (err, res) {
                 res.should.have.status(201);
                 res.should.be.json;
@@ -52,8 +52,8 @@ describe('Payment Endpoints', function () {
     it('should update a SINGLE payment on /payment/<id> PUT', function (done) {
         chai.request(server)
             .put('/paymentTest/')
-            .set({ 'id': '6', 'Content-Type': 'application/json', 'Accept': 'application/json' })
-            .send({ 'cardNumber': 'udpate', 'cardType': 'udpate', 'expirationDate': '2020-01-01', 'nameOnCard': 'update', })
+            .set({ 'userId': '6', 'Content-Type': 'application/json', 'Accept': 'application/json' })
+            .send({ 'cardNumber': 'update', 'cardType': 'update', 'expirationDate': '2020-01-01', 'nameOnCard': 'update', })
             .end(function (error, response) {
                 if (error) {
                     console.log("error");
@@ -69,14 +69,14 @@ describe('Payment Endpoints', function () {
     it('should delete a SINGLE payment on /payment/<id> DELETE', function (done) {
         chai.request(server)
             .delete('/paymentTest/')
-            .set({ 'id': '6', 'Content-Type': 'application/json', 'Accept': 'application/json' })
+            .set({ 'userId': '6', 'Content-Type': 'application/json', 'Accept': 'application/json' })
             .end(function (error, response) {
                 if (error) {
                     console.log("error");
                     done(error);
                 }
                 else {
-                    response.should.have.status(200);
+                    response.should.have.status(204);
                     done();
                 }
             });
