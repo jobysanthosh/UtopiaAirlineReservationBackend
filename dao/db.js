@@ -11,9 +11,9 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err){
 if(!err) {
-    console.log("Database is connected ... ");    
+    console.log("AWS Database is connected ... ");    
 } else {
-    console.log("Error connecting database ... ");    
+    console.log("Error connecting AWS database ... ");    
 }
 });
 

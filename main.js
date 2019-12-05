@@ -2,14 +2,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const apiRouter = require('./controllers/index.js');
+const apiRouterTest = require('./test/index.js');
 const errorHandler = require('./helpers/errorHandler');
-const CONFIG = require('./config');
 
 const server = express();
 server.use(bodyParser.json()); 
 server.use(bodyParser.urlencoded({ extended: true })); 
 server.use(cors());
-console.log(CONFIG.db_name);
 // server.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -26,6 +25,7 @@ server.get('/', (req, res) => {
  });
 
 server.use('/payment', apiRouter);
+server.use('/paymentTest', apiRouterTest);
 
 server.use(errorHandler.notFound);
 server.use(errorHandler.internalServerError);
@@ -34,5 +34,5 @@ module.exports = server;
 
 //ERROR CHECK : serverless logs -f server -t
 
-// server.listen(8000);
-// console.log('Server running in port: 8000 ...')
+server.listen(8000);
+console.log('Server running in port: 8000 ...')

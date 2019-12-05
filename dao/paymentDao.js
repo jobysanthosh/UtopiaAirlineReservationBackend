@@ -1,5 +1,6 @@
 var db = require('./db');
 const bcrypt = require('bcrypt');
+var paymentDao = require('../dao/paymentDao');
 const saltRounds = 10;
 
 exports.getPayment = function(cb){
