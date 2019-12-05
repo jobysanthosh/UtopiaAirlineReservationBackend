@@ -1,0 +1,11 @@
+  
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+    - npm install --no-progress --silent
+  build:
+    commands:
+    - npm start
+    - mocha
