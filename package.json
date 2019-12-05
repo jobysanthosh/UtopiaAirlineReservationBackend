@@ -1,7 +1,11 @@
 {
   "name": "utopiabackend",
   "version": "1.0.0",
-  "private": true,
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jobysanthosh/UtopiaBackEnd.git"
+  },
   "dependencies": {
     "bcrypt": "^3.0.7",
     "bcryptjs": "^2.4.3",
