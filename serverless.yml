@@ -2,9 +2,9 @@ service: expressAPI-payment
 provider:
  name: aws
  runtime: nodejs8.10
- environment:
-    STAGE: ${opt:stage}
- 
+ stage: dev
+ region: us-east-2
+ memorySize: 128
 functions:
  server:
    handler: index.server
