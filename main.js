@@ -34,5 +34,5 @@ module.exports = server;
 
 //ERROR CHECK : serverless logs -f server -t
 
-server.listen(8000);
-console.log('Server running in port: 8000 ...')
+// server.listen(8000);
+// console.log('Server running in port: 8000 ...')
