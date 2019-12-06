@@ -21,8 +21,8 @@ phases:
     - serverless package --package target/stg --stage stg -v -r us-east-2
     - serverless package --package target/prod --stage prod -v -r us-east-2
 artifacts:
-files:
-- target/**/*
-- serverless.yml
-- deploy.sh
+  files:
+  - target/**/*
+  - serverless.yml
+  - deploy.sh
   
