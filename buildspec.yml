@@ -15,5 +15,6 @@ phases:
   build:
     commands:
     - serverless deploy
+    - echo im done
 
   
