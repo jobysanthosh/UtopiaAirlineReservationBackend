@@ -16,8 +16,11 @@ phases:
     commands:
     - npm test
     - mkdir -p target/stg
+    - echo making a target folder
     - mkdir target/prod
+    - echo serverless for target stg
     - serverless package --package target/stg --stage stg -v -r us-east-2
+    - echo serverless for prod
     - serverless package --package target/prod --stage prod -v -r us-east-2
 artifacts:
   files:
