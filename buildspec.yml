@@ -1,29 +1,29 @@
   
 version: 0.2
 
-environment_variables:
-  plaintext:
-    DB_DIALECT: "mysql"
-  plaintext:
-    DB_HOST: "lms.cv2mc6y2qhct.us-east-2.rds.amazonaws.com"
-  plaintext:
-    DB_PORT: "3306"
-  plaintext:
-    DB_NAME: "UtopiaAirline"
-  plaintext:
-    DB_USER: "admin"
-  plaintext:
-    DB_PASSWORD: "teamflash123"
-  plaintext:
-    TESTDB_HOST: "127.0.0.1"
-  plaintext:
-    TESTDB_USER: "root"
-  plaintext:
-    TESTDB_PASSWORD: "Brownlenovo5!"
-  plaintext:
-    STRIPE_SECRETKEY: "sk_test_MYDs1ZdsDZ2QcbhY7YkwaDuf009s6McM4m"
-  plaintext:
-    digestAlgorithm: "sha1"
+# environment_variables:
+#   plaintext:
+#     DB_DIALECT: "mysql"
+#   plaintext:
+#     DB_HOST: "lms.cv2mc6y2qhct.us-east-2.rds.amazonaws.com"
+#   plaintext:
+#     DB_PORT: "3306"
+#   plaintext:
+#     DB_NAME: "UtopiaAirline"
+#   plaintext:
+#     DB_USER: "admin"
+#   plaintext:
+#     DB_PASSWORD: "teamflash123"
+#   plaintext:
+#     TESTDB_HOST: "127.0.0.1"
+#   plaintext:
+#     TESTDB_USER: "root"
+#   plaintext:
+#     TESTDB_PASSWORD: "Brownlenovo5!"
+#   plaintext:
+#     STRIPE_SECRETKEY: "sk_test_MYDs1ZdsDZ2QcbhY7YkwaDuf009s6McM4m"
+#   plaintext:
+#     digestAlgorithm: "sha1"
 
 phases:
   install:

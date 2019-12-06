@@ -145,11 +145,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/expressAPI-payment/dev/1575657963983-2019-12-06T18:46:03.983Z/expressAPI-payment.zip"
+          "S3Key": "serverless/expressAPI-payment/dev/1575667281841-2019-12-06T21:21:21.841Z/expressAPI-payment.zip"
         },
         "FunctionName": "expressAPI-payment-dev-server",
         "Handler": "index.server",
-        "MemorySize": 1024,
+        "MemorySize": 128,
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -157,24 +157,21 @@
           ]
         },
         "Runtime": "nodejs8.10",
-        "Timeout": 6,
-        "Environment": {
-          "Variables": {}
-        }
+        "Timeout": 6
       },
       "DependsOn": [
         "ServerLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "ServerLambdaVersion8QK87AgCbP2t3pHRrtk0SPAaBiLd4KJA86yBoX6h4": {
+    "ServerLambdaVersionSGsfdfWZcZtKxWay0z0tnpWARV1C815inVUAAWSyQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ServerLambdaFunction"
         },
-        "CodeSha256": "NuHCV2X5EQCT0hhRMEBaWZ+PG2Pz6xWVjT72PiWM4UY="
+        "CodeSha256": "TGNHjAtmVk1U5GbArmtR8ufGT05N9zD7/dYPC/dfw4U="
       }
     },
     "ApiGatewayRestApi": {
@@ -389,7 +386,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1575657882208": {
+    "ApiGatewayDeployment1575667259198": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -451,7 +448,7 @@
     "ServerLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ServerLambdaVersion8QK87AgCbP2t3pHRrtk0SPAaBiLd4KJA86yBoX6h4"
+        "Ref": "ServerLambdaVersionSGsfdfWZcZtKxWay0z0tnpWARV1C815inVUAAWSyQ"
       }
     },
     "ServiceEndpoint": {
