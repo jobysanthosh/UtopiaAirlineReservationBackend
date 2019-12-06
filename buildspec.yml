@@ -5,12 +5,24 @@ phases:
   install:
     runtime-versions:
       nodejs: 8.10
+  install:
+    commands:
+    - npm install --silent --no-progress -g npm
+    - npm install --silent --no-progress -g serverless
   pre_build:
     commands:
-    - npm install --no-progress --silent
+    - npm install --silent --no-progress
   build:
     commands:
     - npm start
     - npm test
-    - serverless deploy
+    - mkdir -p target/stg
+    - mkdir target/prod
+    - serverless package --package target/stg --stage stg -v -r us-east-2
+    - serverless package --package target/prod --stage prod -v -r us-east-2
+artifacts:
+files:
+- target/**/*
+- serverless.yml
+- deploy.sh
   
