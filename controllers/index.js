@@ -18,6 +18,8 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
 // GET ALL PAYMENTS
 router.get('/', (req, res) => {
+  console.log("im in payment GET method");
+ 
   const query = 'select * from UtopiaAirline.CardDetails';
 
   db.query(query, (err, results, fields) => {

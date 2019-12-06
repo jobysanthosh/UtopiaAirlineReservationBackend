@@ -33,6 +33,6 @@ server.use(errorHandler.internalServerError);
 module.exports = server;
 
 //ERROR CHECK : serverless logs -f server -t
-console.log("hello");
+
 server.listen(8000);
 console.log('Server running in port: 8000 ...')
