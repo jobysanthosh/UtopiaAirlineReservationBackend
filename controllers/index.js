@@ -3,10 +3,10 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const db = require('../dao/db');
 const Pbkdf2 = require('nodejs-pbkdf2');
-const CONFIG = require('../config');
+// const CONFIG = require('../config');
 
 const config = {
-  digestAlgorithm: CONFIG.digestAlgorithm,
+  digestAlgorithm: 'sha1',
   keyLen: 64,
   saltSize: 64,
   iterations: 15000

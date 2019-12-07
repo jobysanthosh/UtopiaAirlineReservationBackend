@@ -1,12 +1,12 @@
 var mysql      = require('mysql');
-const CONFIG = require('../config');
+// const CONFIG = require('../config');
 
 var connection = mysql.createConnection({
-    host     : CONFIG.db_host,
-    port     : CONFIG.db_port,
-    user     : CONFIG.db_user,
-    password : CONFIG.db_password,
-    database : CONFIG.db_name
+    host     : db_host,
+    port     : db_port,
+    user     : db_user,
+    password : db_password,
+    database : db_name
 });
 
 connection.connect(function(err){
@@ -16,8 +16,7 @@ if(!err) {
 } else {
     console.log("Error connecting AWS database ... ");   
     console.log(db_host); 
-    console.log(host);
-    console.log(CONFIG.db_host);
+
 }
 });
 
