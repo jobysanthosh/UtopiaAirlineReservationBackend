@@ -5,8 +5,6 @@ provider:
     stage: dev
     region: us-east-2
     memorySize: 128
-    environment:
-        connection.config.host: lms.cv2mc6y2qhct.us-east-2.rds.amazonaws.com
 
 functions:
     server:
