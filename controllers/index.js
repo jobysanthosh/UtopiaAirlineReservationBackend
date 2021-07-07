@@ -3,10 +3,10 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const db = require('../dao/db');
 const Pbkdf2 = require('nodejs-pbkdf2');
-const CONFIG = require('../config');
+// const CONFIG = require('../config');
 
 const config = {
-  digestAlgorithm: CONFIG.digestAlgorithm,
+  digestAlgorithm: 'sha1',
   keyLen: 64,
   saltSize: 64,
   iterations: 15000
@@ -18,6 +18,8 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
 // GET ALL PAYMENTS
 router.get('/', (req, res) => {
+  console.log("im in payment GET method");
+ 
   const query = 'select * from UtopiaAirline.CardDetails';
 
   db.query(query, (err, results, fields) => {

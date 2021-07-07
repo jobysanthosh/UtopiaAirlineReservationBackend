@@ -1,6 +1,6 @@
-const CONFIG = require('../config');
+// const CONFIG = require('../config');
 
-const stripe = require("stripe")(CONFIG.stripe_secretkey);
+const stripe = require("stripe")('sk_test_MYDs1ZdsDZ2QcbhY7YkwaDuf009s6McM4m');
 const stripeChargeCallback = res => (stripeErr, stripeRes) => {
     if (stripeErr) {
       res.status(500).send({ error: stripeErr });
